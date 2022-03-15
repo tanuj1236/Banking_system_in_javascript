@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+       body{
+    background-color: gray;
+}
+.main h1{
+    text-align: center;
+}
+.logo img{
+    height: 80px;
+}
+#btn1{
+    font-size: x-large;
+    background-color: green;
+    margin-left: 940px;
+    border-radius: 30px;
+}
+#btn2{
+    background-color: green;
+    font-size: x-large;
+    border-radius: 30px;
+}
+#hide{
+    margin-top: 30px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+}
+#service{
+    margin-top: 10px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+}
+#service input{
+    margin-top: 30px;
+}
+#debit{
+    margin-top: 10px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+}
+#credit{
+    margin-top: 10px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+}
+#ball{
+    margin-top: 10px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+}
+#ball m2{
+        margin-left: 40px;
+}
+#msg{
+    margin-top: 10px;
+    text-align: center;
+   margin-left: 550px;
+    border-radius: 30px;
+    background-color:white;
+    width: 250px;
+    height: 200px;
+    font-size: xx-large;
+}
+#m6{
+    font-size: 60px;
+}
+   </style>
+</head>
+<body>
+    <div class="logo">
+    <img src="download-removebg-preview.png" >
+    <button onclick="login()" id="btn1">Login</button>
+    <button onclick="logout()" id="btn2">Logout</button>
+    </div>
+    <div class="main">
+        <h1 id="m6">Punjab National Bank Ghaziabd</h1>
+    </div>
+   <div id="hide">
+    <br>
+    <label>Enter Your UserName</label>
+    <br><br>
+    <input type="text" id="input1">
+    <br><br>
+    <label>Enter Your Passwor</label>
+    <br><br>
+    <input type="password" id="input2">
+    <br><br>
+    <button onclick="submit()">Submit</button>
+   </div>
+
+    <div id="service">
+        <br>
+        <h2 >Bank Provide Service</h2>
+        <input list="browsers" id="browser">
+        <datalist id="browsers">
+            <option value="Credit">Credit</option> 
+            <option value="Debit">Debit</option> 
+            <option value="Check Balance">Check Balance</option> 
+            <option value="Exit">Exit</option> 
+        </datalist>
+        <br><br>
+        <button onclick="sub()">Submit</button>
+    </div>
+
+    <div id="debit">
+        <br>
+        <h2>Add Amount Number</h2><br><br>
+        <input type="number" id="input3"><br><br>
+        <button onclick="hii()">Submit</button>
+    </div>
+
+    <div id="credit">
+        <br>
+        <h2>Add Amount Number</h2><br><br>
+        <input type="number" id="input4">
+        <br><br>
+        <button onclick="hello()">Submit</button>
+    </div>
+
+    <div id="ball">
+        <h1 id="m1"></h1>
+        <button onclick="fun()" id="m2">Back</button>
+    </div>
+ 
+   
+    <span id="msg"></span>
+
+    <script>
+
+var bal=0;
+document.getElementById("hide").style.display = "none";
+document.getElementById("service").style.display ="none";
+document.getElementById("debit").style.display = "none";
+document.getElementById("credit").style.display ="none";
+document.getElementById("ball").style.display ="none";
+document.getElementById("m2").style.display ="none";
+function login(){
+    document.getElementById("hide").style.display = "block";
+    document.getElementById("msg").style.display ="none";
+}
+function logout()
+{
+    document.getElementById("hide").style.display = "none";
+    document.getElementById("msg").innerHTML="thanks to visit here"
+}
+function submit()
+{
+    var username = document.getElementById("input1").value;
+    var password = document.getElementById("input2").value;
+    if(username=="tanuj123" && password =="9761")
+    {
+        document.getElementById("hide").style.display="none";
+        document.getElementById("service").style.display = "block";
+    }
+}
+function sub()
+{
+    var x = document.getElementById("browser").value;
+     if(x =="Debit")
+    {
+         document.getElementById("service").style.display = "none";
+         document.getElementById("debit").style.display = "block";
+
+    }
+   else if(x == "Credit")
+   {
+    document.getElementById("service").style.display = "none";
+    document.getElementById("credit").style.display = "block";
+   }
+   else if(x == "Check Balance")
+   {
+    document.getElementById("service").style.display="none";
+    document.getElementById("ball").style.display="block";
+    document.getElementById("m1").innerHTML=bal;
+    document.getElementById("m2").style.display="block";
+    
+   }
+   else if(x == "Exit")
+   {
+    document.getElementById("ball").style.display = "none"; 
+    document.getElementById("service").style.display ="none";
+    document.getElementById("msg").style.display ="block";
+    document.getElementById("msg").innerHTML="thanks to visit here"
+   }
+   else{
+    console.log("anyone");
+   }
+}
+function hello()
+{
+         var z = parseInt(document.getElementById("input4").value);
+         bal-=z;
+         document.getElementById("credit").style.display="none";
+         document.getElementById("service").style.display="block";
+}
+function hii()
+{
+    var y = parseInt(document.getElementById("input3").value);
+    bal+=y;
+    document.getElementById("debit").style.display = "none";
+    document.getElementById("service").style.display = "block";    
+}
+function hello1()
+{
+    document.getElementById("ball").innerHTML=bal;
+}
+function fun()
+{
+   document.getElementById("ball").style.display="none";
+    document.getElementById("service").style.display="block";
+}
+    </script>
+
+</body>
+</html>
